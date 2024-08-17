@@ -1,0 +1,16 @@
+name: Publish
+
+on:
+  release:
+    types: [published]
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+
+  publish:
+    uses: stellar/actions/.github/workflows/rust-publish.yml@main
+    secrets:
+      CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
